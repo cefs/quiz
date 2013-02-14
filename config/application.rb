@@ -64,5 +64,10 @@ module Quiz
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    #configurar generator para gerar os testes utilizando a DSL do MiniTest::Spec:
+    config.generators do |g|
+        g.test_framework :mini_test, spec: true
+    end
   end
 end
