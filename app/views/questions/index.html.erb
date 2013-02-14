@@ -1,31 +1,31 @@
-<p class="info">Nenhuma questao cadastrada</p>
-
-<h1>Listing questions</h1>
-
-<% unless @questions.empty? %>
+<% if @questions.empty? %>
+  <p class="info">Nenhuma questao cadastrada</p>
+<% else  %>
+  <h1>Listing questions</h1>
   <table>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Difficulty</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Content</th>
+          <th>Difficulty</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
   <% @questions.each do |question| %>
-    <tr>
-      <td><%= question.title %></td>
-      <td><%= question.content %></td>
-      <td><%= question.difficulty %></td>
-      <td><%= link_to 'Show', question %></td>
-      <td><%= link_to 'Edit', edit_question_path(question) %></td>
-      <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+    <tbody>
+      <tr>
+        <td><%= question.title %></td>
+        <td><%= question.content %></td>
+        <td><%= question.difficulty %></td>
+        <td><%= link_to 'Show', question %></td>
+        <td><%= link_to 'Edit', edit_question_path(question) %></td>
+        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    </tbody>
   <% end %>
   </table>
 <% end %>
-
-<br />
 
 <%= link_to 'New Question', new_question_path %>
