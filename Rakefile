@@ -6,4 +6,6 @@ require File.expand_path('../config/application', __FILE__)
 
 Quiz::Application.load_tasks
 
-MINITEST_TASKS << "views"
+MINITEST_TASKS = %w(models controllers helpers mailers integration views)
+
+
